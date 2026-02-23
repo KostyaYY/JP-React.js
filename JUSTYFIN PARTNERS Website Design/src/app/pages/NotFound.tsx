@@ -1,19 +1,20 @@
 import { Link } from 'react-router';
 import { useLanguage } from '../context/LanguageContext';
+import styles from './NotFound.module.css';
 
 export function NotFound() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen pt-20 flex items-center justify-center">
-      <div className="text-center px-6">
-        <h1 className="text-6xl font-light mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-8">
+    <div className={styles.notFoundPage}>
+      <div className={styles.notFoundContent}>
+        <h1 className={styles.notFoundTitle}>404</h1>
+        <p className={styles.notFoundDescription}>
           {t('Сторінку не знайдено', 'Page not found')}
         </p>
         <Link
           to="/"
-          className="inline-block px-8 py-4 bg-gray-900 text-white text-sm tracking-wide hover:bg-gray-800 transition-colors"
+          className={styles.notFoundButton}
         >
           {t('ПОВЕРНУТИСЯ НА ГОЛОВНУ', 'BACK TO HOME')}
         </Link>

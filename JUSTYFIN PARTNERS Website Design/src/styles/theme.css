@@ -2,6 +2,7 @@
 
 :root {
   --font-size: 16px;
+  --font-family: 'Playfair Display', serif;
   --background: #f4eee8;
   --foreground: #1a1a1a;
   --card: #f3eae2;
@@ -137,6 +138,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-family);
   }
 
   /**
@@ -152,41 +154,64 @@
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-family: var(--font-family);
   }
 
   h2 {
     font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-family: var(--font-family);
   }
 
   h3 {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-family: var(--font-family);
   }
 
   h4 {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-family: var(--font-family);
   }
 
   label {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-family: var(--font-family);
   }
 
   button {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-family: var(--font-family);
   }
 
   input {
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+    font-family: var(--font-family);
+  }
+
+  p {
+    font-family: var(--font-family);
+  }
+
+  a {
+    font-family: var(--font-family);
+  }
+
+  span {
+    font-family: var(--font-family);
+  }
+
+  div {
+    font-family: var(--font-family);
   }
 }

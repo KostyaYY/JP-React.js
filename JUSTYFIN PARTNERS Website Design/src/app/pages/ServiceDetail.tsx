@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { services } from '../data/mockData';
 import { motion } from 'motion/react';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
+import styles from './ServiceDetail.module.css';
 
 export function ServiceDetail() {
   const { id } = useParams();
@@ -17,13 +18,13 @@ export function ServiceDetail() {
   const serviceName = language === 'ukr' ? service.ukr : service.eng;
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className={styles.serviceDetailPage}>
       {/* Back Button */}
-      <section className="py-8 px-6 lg:px-12 border-b border-gray-200">
-        <div className="max-w-[1400px] mx-auto">
+      <section className={styles.backSection}>
+        <div className={styles.backContainer}>
           <Link
             to="/?menu=open"
-            className="inline-flex items-center gap-2 text-sm tracking-wide hover:opacity-70 transition-opacity"
+            className={styles.backLink}
           >
             <ArrowLeft size={16} />
             {t('Назад до меню', 'Back to menu')}
@@ -32,17 +33,17 @@ export function ServiceDetail() {
       </section>
 
       {/* Hero */}
-      <section className="py-24 px-6 lg:px-12 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto">
+      <section className={styles.heroSection}>
+        <div className={styles.heroContainer}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6">
+            <h1 className={styles.heroTitle}>
               {serviceName}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl">
+            <p className={styles.heroDescription}>
               {t(
                 'Експертні рішення, адаптовані під ваші потреби',
                 'Expert solutions tailored to your needs'
@@ -53,14 +54,14 @@ export function ServiceDetail() {
       </section>
 
       {/* Content */}
-      <section className="py-24 px-6 lg:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className={styles.contentSection}>
+        <div className={styles.contentContainer}>
+          <div className={styles.contentGrid}>
             <div>
-              <h2 className="text-sm tracking-widest text-gray-500 mb-4">
+              <h2 className={styles.sectionTitle}>
                 {t('ОГЛЯД ПОСЛУГИ', 'SERVICE OVERVIEW')}
               </h2>
-              <div className="space-y-4 text-gray-700">
+              <div className={styles.textContent}>
                 <p>
                   {t(
                     `Наша команда спеціалізується на наданні послуг у сфері "${serviceName}" та має багаторічний досвід роботи з клієнтами різних галузей.`,
@@ -83,10 +84,10 @@ export function ServiceDetail() {
             </div>
 
             <div>
-              <h2 className="text-sm tracking-widest text-gray-500 mb-4">
+              <h2 className={styles.sectionTitle}>
                 {t('ЩО МИ ПРОПОНУЄМО', 'WHAT WE OFFER')}
               </h2>
-              <div className="space-y-4 mb-12">
+              <div className={styles.offeringsList}>
                 {[
                   t('Комплексний аналіз та консультування', 'Comprehensive analysis and advisory'),
                   t('Підготовка необхідної документації', 'Preparation of required documentation'),
@@ -100,17 +101,17 @@ export function ServiceDetail() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-start gap-3"
+                    className={styles.offeringItem}
                   >
-                    <CheckCircle className="text-gray-900 mt-1 flex-shrink-0" size={20} />
-                    <p className="text-gray-700">{item}</p>
+                    <CheckCircle className={styles.offeringIcon} size={20} />
+                    <p className={styles.offeringText}>{item}</p>
                   </motion.div>
                 ))}
               </div>
 
               <Link
                 to="/contact"
-                className="inline-block px-8 py-4 bg-gray-900 text-white text-sm tracking-wide hover:bg-gray-800 transition-colors"
+                className={styles.ctaButton}
               >
                 {t('ОБГОВОРИТИ ПРОЕКТ', 'DISCUSS YOUR PROJECT')}
               </Link>
@@ -120,12 +121,12 @@ export function ServiceDetail() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-6 lg:px-12 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto">
-          <h2 className="text-3xl md:text-4xl font-light mb-12 text-center">
+      <section className={styles.whyChooseSection}>
+        <div className={styles.whyChooseContainer}>
+          <h2 className={styles.whyChooseTitle}>
             {t('Чому обирають нас', 'Why choose us')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={styles.whyChooseGrid}>
             {[
               {
                 title: t('Експертиза', 'Expertise'),
@@ -146,10 +147,10 @@ export function ServiceDetail() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className={styles.whyChooseCard}
               >
-                <h3 className="text-xl font-light mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDescription}>{item.desc}</p>
               </motion.div>
             ))}
           </div>

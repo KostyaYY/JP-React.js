@@ -1,29 +1,30 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { motion } from 'motion/react';
+import styles from './Legal.module.css';
 
 export function PrivacyPolicy() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen pt-20">
-      <section className="py-24 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
+    <div className={styles.legalPage}>
+      <section className={styles.legalSection}>
+        <div className={styles.legalContainer}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8">
+            <h1 className={styles.legalTitle}>
               {t('Політика конфіденційності', 'Privacy Policy')}
             </h1>
 
-            <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
-              <p className="text-sm text-gray-500">
+            <div className={styles.legalContent}>
+              <p className={styles.lastUpdated}>
                 {t('Останнє оновлення: 13 лютого 2026', 'Last updated: February 13, 2026')}
               </p>
 
-              <section className="space-y-4">
-                <h2 className="text-2xl font-light text-gray-900 mt-8">
+              <section className={styles.legalSection}>
+                <h2 className={styles.legalSectionTitle}>
                   {t('1. Вступ', '1. Introduction')}
                 </h2>
                 <p>
@@ -34,8 +35,8 @@ export function PrivacyPolicy() {
                 </p>
               </section>
 
-              <section className="space-y-4">
-                <h2 className="text-2xl font-light text-gray-900 mt-8">
+              <section className={styles.legalSection}>
+                <h2 className={styles.legalSectionTitle}>
                   {t('2. Інформація, яку ми збираємо', '2. Information We Collect')}
                 </h2>
                 <p>
@@ -46,8 +47,8 @@ export function PrivacyPolicy() {
                 </p>
               </section>
 
-              <section className="space-y-4">
-                <h2 className="text-2xl font-light text-gray-900 mt-8">
+              <section className={styles.legalSection}>
+                <h2 className={styles.legalSectionTitle}>
                   {t('3. Використання інформації', '3. Use of Information')}
                 </h2>
                 <p>
@@ -58,20 +59,20 @@ export function PrivacyPolicy() {
                 </p>
               </section>
 
-              <section className="space-y-4">
-                <h2 className="text-2xl font-light text-gray-900 mt-8">
+              <section className={styles.legalSection}>
+                <h2 className={styles.legalSectionTitle}>
                   {t('4. Захист даних', '4. Data Protection')}
                 </h2>
                 <p>
                   {t(
-                    'Ми вживаємо відповідних технічних та організаційних заходів для захисту вашої особистої інформації від несанкціонованого доступу, втрати або зміни.',
+                    'Ми вживаємо відповідних технічних та організаційних заходів для захисту вашої особистої інф��рмації від несанкціонованого доступу, втрати або зміни.',
                     'We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, loss or alteration.'
                   )}
                 </p>
               </section>
 
-              <section className="space-y-4">
-                <h2 className="text-2xl font-light text-gray-900 mt-8">
+              <section className={styles.legalSection}>
+                <h2 className={styles.legalSectionTitle}>
                   {t('5. Ваші права', '5. Your Rights')}
                 </h2>
                 <p>
@@ -82,8 +83,8 @@ export function PrivacyPolicy() {
                 </p>
               </section>
 
-              <section className="space-y-4">
-                <h2 className="text-2xl font-light text-gray-900 mt-8">
+              <section className={styles.legalSection}>
+                <h2 className={styles.legalSectionTitle}>
                   {t('6. Контакти', '6. Contact')}
                 </h2>
                 <p>

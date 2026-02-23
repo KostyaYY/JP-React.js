@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 import { CheckCircle } from 'lucide-react';
+import styles from './About.module.css';
 
 export function About() {
   const { t } = useLanguage();
@@ -39,19 +40,19 @@ export function About() {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className={styles.aboutPage}>
       {/* Hero */}
-      <section className="py-24 px-6 lg:px-12 bg-white">
-        <div className="max-w-[1400px] mx-auto">
+      <section className={styles.heroSection}>
+        <div className={styles.heroContainer}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm tracking-widest text-gray-500 mb-4">
+            <p className={styles.sectionLabel}>
               {t('ПРО НАС', 'ABOUT US')}
             </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6">
+            <h1 className={styles.heroTitle}>
               {t('Ми змінюємо уявлення про юридичні послуги', 'We\'re a different kind of law firm')}
             </h1>
           </motion.div>
@@ -59,17 +60,17 @@ export function About() {
       </section>
 
       {/* Overview */}
-      <section className="py-24 px-6 lg:px-12 bg-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-sm tracking-widest text-gray-500 mb-6">
+      <section className={styles.overviewSection}>
+        <div className={styles.overviewContainer}>
+          <div className={styles.overviewGrid}>
+            <div className={styles.overviewColumn}>
+              <h2>
                 {t('ПРО КОМПАНІЮ', 'OVERVIEW')}
               </h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <div className={styles.textContent}>
                 <p>
                   {t(
-                    'Ми — су��асна юридична фірма, що мислить стратегічно та працює на випередження, надаючи комплексні правові рішення для підприємців, інвесторів і компаній різних галузей.',
+                    'Ми — сучасна юридична фірма, що мислить стратегічно та працює на випередження, надаючи комплексні правові рішення для підприємців, інвесторів і компаній різних галузей.',
                     'We are a modern, forward-thinking law firm delivering comprehensive legal solutions for entrepreneurs, investors, and businesses across industries.'
                   )}
                 </p>
@@ -82,8 +83,8 @@ export function About() {
               </div>
             </div>
 
-            <div>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+            <div className={styles.overviewColumn}>
+              <div className={styles.textContent}>
                 <p>
                   {t(
                     'Ми об\'єднуємо провідних юридичних фахівців у ключових юрисдикціях, щоб супроводжувати стратегічні угоди та підтримувати бізнес-ініціативи, що мають критичне значення для наших клієнтів. Досвід роботи на перетині комерційних, фінансових і правових інновацій дозволяє нам досягати результатів, які сприяють стабільному довгостроковому розвитку бізнесу.',
@@ -92,7 +93,7 @@ export function About() {
                 </p>
                 <p>
                   {t(
-                    'Наш підхід ґрунтується на безкомпромісній якості, культурі співпраці та чітких цінностях, що визначають наші р��шення, стиль роботи й відповідальність перед клієнтами.',
+                    'Наш підхід ґрунтується на безкомпромісній якості, культурі співпраці та чітких цінностях, що визначають наші рішення, стиль роботи й відповідальність перед клієнтами.',
                     'Our approach is built on uncompromising quality, a culture of collaboration, and clear values that guide our decisions, working style, and responsibility to clients.'
                   )}
                 </p>
@@ -103,15 +104,15 @@ export function About() {
       </section>
 
       {/* Advantages */}
-      <section className="py-24 px-6 lg:px-12 bg-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="mb-16">
-            <h2 className="text-sm tracking-widest text-gray-500 mb-4">
+      <section className={styles.advantagesSection}>
+        <div className={styles.advantagesContainer}>
+          <div className={styles.advantagesHeader}>
+            <h2>
               {t('ПЕРЕВАГИ JUSTYFIN PARTNERS', 'JUSTYFIN PARTNERS — ADVANTAGES')}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className={styles.advantagesGrid}>
             {advantages.map((advantage, index) => (
               <motion.div
                 key={index}
@@ -119,12 +120,12 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="space-y-4"
+                className={styles.advantageCard}
               >
-                <h3 className="text-2xl font-light">
+                <h3 className={styles.advantageTitle}>
                   {t(advantage.title.ukr, advantage.title.eng)}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className={styles.advantageDescription}>
                   {t(advantage.description.ukr, advantage.description.eng)}
                 </p>
               </motion.div>
@@ -134,16 +135,16 @@ export function About() {
       </section>
 
       {/* Closing Statement */}
-      <section className="py-24 px-6 lg:px-12 bg-gray-900 text-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-8 leading-tight">
+      <section className={styles.closingSection}>
+        <div className={styles.closingContainer}>
+          <div className={styles.closingInner}>
+            <h2 className={styles.closingTitle}>
               {t(
                 'Компанія, що формує успіх своїх клієнтів',
                 'A company with the power to shape our clients\' fortunes'
               )}
             </h2>
-            <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+            <div className={styles.closingContent}>
               <p>
                 {t(
                   'Наш досвід і експертиза дозволяють нам бути партнером, який впливає на розвиток і результати бізнесу клієнтів завдяки глибокому розумінню бізнесу, стратегічному підходу та ефективним рішенням.',
@@ -168,7 +169,7 @@ export function About() {
                   'We work in the industries and regions that matter most to you. Acting as one team, we anticipate needs and respond quickly.'
                 )}
               </p>
-              <p className="text-xl font-light text-white">
+              <p className={styles.closingHighlight}>
                 {t(
                   'Саме так ми створюємо вашу конкурентну перевагу.',
                   'This is how we create your competitive advantage.'

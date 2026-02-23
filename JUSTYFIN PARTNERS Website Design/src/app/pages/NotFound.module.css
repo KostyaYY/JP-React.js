@@ -1,0 +1,39 @@
+.notFoundPage {
+  min-height: 100vh;
+  padding-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notFoundContent {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.notFoundTitle {
+  font-size: 3.75rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.notFoundDescription {
+  font-size: 1.25rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.notFoundButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #111827;
+  color: #ffffff;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.notFoundButton:hover {
+  background-color: #1f2937;
+}

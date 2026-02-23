@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { newsArticles } from '../data/mockData';
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
+import styles from './NewsArticle.module.css';
 
 export function NewsArticle() {
   const { id } = useParams();
@@ -15,13 +16,13 @@ export function NewsArticle() {
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className={styles.newsArticlePage}>
       {/* Back Button */}
-      <section className="py-8 px-6 lg:px-12 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
+      <section className={styles.backSection}>
+        <div className={styles.backContainer}>
           <Link
             to="/news"
-            className="inline-flex items-center gap-2 text-sm tracking-wide hover:opacity-70 transition-opacity"
+            className={styles.backLink}
           >
             <ArrowLeft size={16} />
             {t('Назад до новин', 'Back to news')}
@@ -30,18 +31,18 @@ export function NewsArticle() {
       </section>
 
       {/* Article */}
-      <article className="py-16 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
+      <article className={styles.articleSection}>
+        <div className={styles.articleContainer}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="mb-8">
-              <span className="text-xs tracking-widest text-gray-500 mb-4 block">
+            <div className={styles.articleMeta}>
+              <span className={styles.articleCategory}>
                 {article.category}
               </span>
-              <p className="text-sm text-gray-500 mb-6">
+              <p className={styles.articleDate}>
                 {new Date(article.date).toLocaleDateString(
                   language === 'ukr' ? 'uk-UA' : 'en-GB',
                   {
@@ -53,16 +54,16 @@ export function NewsArticle() {
               </p>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight">
+            <h1 className={styles.articleTitle}>
               {language === 'ukr' ? article.title.ukr : article.title.eng}
             </h1>
 
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+            <div className={styles.articleContent}>
+              <p className={styles.articleExcerpt}>
                 {language === 'ukr' ? article.excerpt.ukr : article.excerpt.eng}
               </p>
 
-              <div className="text-gray-700 leading-relaxed space-y-4">
+              <div className={styles.articleBody}>
                 {(language === 'ukr' ? article.content.ukr : article.content.eng)
                   .split('\n')
                   .map((paragraph, index) => (
@@ -75,12 +76,12 @@ export function NewsArticle() {
       </article>
 
       {/* Related Articles */}
-      <section className="py-16 px-6 lg:px-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-light mb-8">
+      <section className={styles.relatedSection}>
+        <div className={styles.relatedContainer}>
+          <h2 className={styles.relatedTitle}>
             {t('Інші статті', 'Related articles')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className={styles.relatedGrid}>
             {newsArticles
               .filter(a => a.id !== id)
               .slice(0, 2)
@@ -88,9 +89,9 @@ export function NewsArticle() {
                 <Link
                   key={relatedArticle.id}
                   to={`/news/${relatedArticle.id}`}
-                  className="block bg-white p-6 hover:shadow-md transition-shadow"
+                  className={styles.relatedCard}
                 >
-                  <p className="text-xs tracking-widest text-gray-500 mb-3">
+                  <p className={styles.relatedCardDate}>
                     {new Date(relatedArticle.date).toLocaleDateString(
                       language === 'ukr' ? 'uk-UA' : 'en-GB',
                       {
@@ -100,10 +101,10 @@ export function NewsArticle() {
                       }
                     )}
                   </p>
-                  <h3 className="text-lg font-light mb-2">
+                  <h3 className={styles.relatedCardTitle}>
                     {language === 'ukr' ? relatedArticle.title.ukr : relatedArticle.title.eng}
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className={styles.relatedCardExcerpt}>
                     {language === 'ukr' ? relatedArticle.excerpt.ukr : relatedArticle.excerpt.eng}
                   </p>
                 </Link>
