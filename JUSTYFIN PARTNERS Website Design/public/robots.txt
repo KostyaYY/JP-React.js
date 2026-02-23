@@ -1,0 +1,13 @@
+# robots.txt for JUSTYFIN PARTNERS
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages if any
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://justyfin.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
