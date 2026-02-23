@@ -1,0 +1,54 @@
+.newsCard {
+  position: relative;
+}
+
+.newsCardContent {
+  position: relative;
+  overflow: hidden;
+}
+
+.newsCardContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 0.6s ease;
+  z-index: 0;
+}
+
+/* All content inside should be above the background */
+.newsCardContent > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Different colors for each card position */
+.newsCard:nth-child(6n+1) .newsCardContent::before {
+  background-color: #f4eee8;
+}
+
+.newsCard:nth-child(6n+2) .newsCardContent::before {
+  background-color: #e8f4f0;
+}
+
+.newsCard:nth-child(6n+3) .newsCardContent::before {
+  background-color: #f3eae2;
+}
+
+.newsCard:nth-child(6n+4) .newsCardContent::before {
+  background-color: #fef3e8;
+}
+
+.newsCard:nth-child(6n+5) .newsCardContent::before {
+  background-color: #f0e8f4;
+}
+
+.newsCard:nth-child(6n) .newsCardContent::before {
+  background-color: #e8f1f4;
+}
+
+.newsCardContent:hover::before {
+  width: 100%;
+}
