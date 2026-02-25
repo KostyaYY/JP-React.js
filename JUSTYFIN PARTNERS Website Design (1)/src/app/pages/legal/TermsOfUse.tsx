@@ -1,0 +1,96 @@
+import { useLanguage } from '../../context/LanguageContext';
+import styles from './Legal.module.css';
+
+export function TermsOfUse() {
+  const { t } = useLanguage();
+
+  return (
+    <div className={styles.legalPage}>
+      <section className={styles.legalSection}>
+        <div className={styles.legalContainer}>
+          <div className={styles.legalContent}>
+            <h1 className={styles.legalTitle}>
+              {t('Умови використання', 'Terms of Use')}
+            </h1>
+
+            <p className={styles.lastUpdated}>
+              {t('Останнє оновлення: 13 лютого 2026', 'Last updated: February 13, 2026')}
+            </p>
+
+            <section className={styles.legalSection}>
+              <h2 className={styles.legalSectionTitle}>
+                {t('1. Прийняття умов', '1. Acceptance of Terms')}
+              </h2>
+              <p>
+                {t(
+                  'Використовуючи цей веб-сайт, ви погоджуєтесь з цими умовами використання. Якщо ви не згодні з будь-якою частиною цих умов, будь ласка, не використовуйте наш веб-сайт.',
+                  'By using this website, you agree to these terms of use. If you disagree with any part of these terms, please do not use our website.'
+                )}
+              </p>
+            </section>
+
+            <section className={styles.legalSection}>
+              <h2 className={styles.legalSectionTitle}>
+                {t('2. Інтелектуальна власність', '2. Intellectual Property')}
+              </h2>
+              <p>
+                {t(
+                  'Весь контент на цьому веб-сайті, включаючи текст, графіку, логотипи та зображення, є власністю JUSTYFIN PARTNERS або використовується з дозволу. Несанкціоноване використання будь-якого контенту заборонено.',
+                  'All content on this website, including text, graphics, logos and images, is the property of JUSTYFIN PARTNERS or used with permission. Unauthorized use of any content is prohibited.'
+                )}
+              </p>
+            </section>
+
+            <section className={styles.legalSection}>
+              <h2 className={styles.legalSectionTitle}>
+                {t('3. Обмеження відповідальності', '3. Limitation of Liability')}
+              </h2>
+              <p>
+                {t(
+                  'Інформація на цьому веб-сайті надається "як є" без будь-яких гарантій. JUSTYFIN PARTNERS не несе відповідальності за будь-які збитки, що виникли внаслідок використання або неможливості використання цього веб-сайту.',
+                  'Information on this website is provided "as is" without any warranties. JUSTYFIN PARTNERS is not liable for any damages arising from the use or inability to use this website.'
+                )}
+              </p>
+            </section>
+
+            <section className={styles.legalSection}>
+              <h2 className={styles.legalSectionTitle}>
+                {t('4. Застосовне право', '4. Governing Law')}
+              </h2>
+              <p>
+                {t(
+                  'Ці умови регулюються законодавством Великої Британії. Будь-які спори підлягають виключній юрисдикції судів Англії та Уельсу.',
+                  'These terms are governed by the laws of the United Kingdom. Any disputes are subject to the exclusive jurisdiction of the courts of England and Wales.'
+                )}
+              </p>
+            </section>
+
+            <section className={styles.legalSection}>
+              <h2 className={styles.legalSectionTitle}>
+                {t('5. Зміни умов', '5. Changes to Terms')}
+              </h2>
+              <p>
+                {t(
+                  'Ми залишаємо за собою право змінювати ці умови в будь-який час. Будь ласка, регулярно переглядайте цю сторінку для ознайомлення з поточними умовами.',
+                  'We reserve the right to change these terms at any time. Please review this page regularly to stay informed of current terms.'
+                )}
+              </p>
+            </section>
+
+            <section className={styles.legalSection}>
+              <h2 className={styles.legalSectionTitle}>
+                {t('6. Контакти', '6. Contact')}
+              </h2>
+              <p>
+                {t(
+                  'Якщо у вас є питання щодо цих умов, будь ласка, зв\'яжіться з нами: info@justyfin.com',
+                  'If you have any questions about these terms, please contact us: info@justyfin.com'
+                )}
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
